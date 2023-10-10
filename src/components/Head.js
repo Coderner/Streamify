@@ -2,12 +2,21 @@ import React from 'react';
 import Menu from '../images/hamburgerimg.png';
 import Logo from '../images/streamifylogo.jpg';
 import User from '../images/images.png';
+import { useDispatch } from 'react-redux';
+import { toggleMenu } from '../utils/appSlice';
 
 const Head = () => {
+
+  const dispatch =useDispatch();
+
+  const toggleMenuHandler = () => {
+        dispatch(toggleMenu());
+  };
+
   return (
     <div className='grid grid-flow-col p-4 my-2 shadow-md'>
       <div className='flex col-span-1'>
-        <img src={Menu} alt="menu" className='h-11 '/>
+        <img src={Menu} alt="menu" className='h-11 cursor-pointer' onClick = {()=>toggleMenuHandler()}/>
         <div className='flex ml-4'>
             <img src={Logo} alt="Streamify logo" className='h-11'/>
             <h1 className='text-blue-800 font-semibold text-xl p-2 bg-blue-200 tracking-tighter'>Streamify</h1>
